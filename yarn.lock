@@ -2210,10 +2210,10 @@
     dom-accessibility-api "^0.4.6"
     pretty-format "^25.5.0"
 
-"@thugs-defi/sdk@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@thugs-defi/sdk/-/sdk-0.0.1.tgz#ba2a8b528bf5f282c0d7856894ec6ed4bf4fd98c"
-  integrity sha512-uFiCbeJ6cy6Y05jUwHDRWROU0huUo+A/OhX49a0Q4qTre8NxMRRvIWpw1wI2OQzPR4vdZKEH4oQgmiVDyGe3zg==
+"@thugs-defi/sdk@0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@thugs-defi/sdk/-/sdk-0.0.2.tgz#a3240853d627e95f2cd3345129f9c21d801246c1"
+  integrity sha512-BcXlvixUCjKFtw+HVG+lhvBHIaieP4ypeGFhIRY+xDx1r+eZwxRIAWFPWJBlPvEP1Ec2/NAMQSKs5CrFhRiwOg==
   dependencies:
     big.js "^5.2.2"
     decimal.js-light "^2.5.0"

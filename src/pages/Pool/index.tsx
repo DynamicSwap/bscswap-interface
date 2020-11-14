@@ -13,7 +13,7 @@ import { StyledInternalLink, TYPE } from '../../theme'
 import { Text } from 'rebass'
 import { LightCard } from '../../components/Card'
 import { RowBetween } from '../../components/Row'
-import { ButtonPrimary} from '../../components/Button'
+import { ButtonGray2 } from '../../components/Button'
 import { AutoColumn } from '../../components/Column'
 
 import { useActiveWeb3React } from '../../hooks'
@@ -63,11 +63,11 @@ export default function Pool() {
       <AppBody>
         <SwapPoolTabs active={'pool'} />
         <AutoColumn gap="lg" justify="center">
-          <ButtonPrimary id="join-pool-button" as={Link} style={{ padding: 16 }} to="/add/BNB">
+          <ButtonGray2 id="join-pool-button" as={Link} style={{ padding: 16 }} to="/add/BNB">
             <Text fontWeight={500} fontSize={20}>
               {t('addLiquidity')}
             </Text>
-          </ButtonPrimary>
+          </ButtonGray2>
 
           <AutoColumn gap="12px" style={{ width: '100%' }}>
             <RowBetween padding={'0 8px'}>

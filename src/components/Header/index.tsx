@@ -5,8 +5,7 @@ import { Text } from 'rebass'
 
 import styled from 'styled-components'
 
-import Logo from '../../assets/images/logo.png'
-import LogoDark from '../../assets/images/logo_white.png'
+import Logo from '../../assets/images/streetswap_logo.png'
 import { useActiveWeb3React } from '../../hooks'
 import { useDarkModeManager } from '../../state/user/hooks'
 import { useETHBalances } from '../../state/wallet/hooks'
@@ -21,11 +20,21 @@ import Web3Status from '../Web3Status'
 const Nav: React.FC = () => {
   return (
     <StyledNav>
-      <StyledAbsoluteLink href="#/swap" className="active">Exchange</StyledAbsoluteLink>
-      <StyledAbsoluteLink href="https://bscswap.info" target="_blank">Analysis</StyledAbsoluteLink>
-      <StyledAbsoluteLink href="https://bscswap.pro" target="_blank">BSCswap Pro</StyledAbsoluteLink>
-      <StyledAbsoluteLink href="https://degenswap.io" target="_blank">DegenSwap (Innovation Zone)</StyledAbsoluteLink>
-      <StyledAbsoluteLink href="https://pool.degenswap.io" target="_blank">LaunchField</StyledAbsoluteLink>
+      <StyledNavRow>
+        <StyledAbsoluteLink href="https://traphouse.vip">Farm</StyledAbsoluteLink>
+        <StyledAbsoluteLink href="https://traphouse.vip/pool">Stake</StyledAbsoluteLink>
+      </StyledNavRow>
+      <StyledNavRow>
+        <StyledAbsoluteLink href="#/swap" className="active">
+          Exchange
+        </StyledAbsoluteLink>
+        <StyledAbsoluteLink href="https://streetswap.info" target="_blank">
+          Analytics
+        </StyledAbsoluteLink>
+      </StyledNavRow>
+      <StyledAbsoluteLink href="#/swap" target="_blank">
+        NFT Market
+      </StyledAbsoluteLink>
     </StyledNav>
   )
 }
@@ -33,31 +42,37 @@ const Nav: React.FC = () => {
 const StyledNav = styled.nav`
   align-items: center;
   display: flex;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 45px;
   font-weight: 500;
-  @media (max-width: 600px) {
+  @media (max-width: 1400px) {
+    flex-direction: column;
+  }
+  @media (max-width: 680px) {
     display: none;
   }
+  flex: 1;
+  justify-content: center;
+`
+
+const StyledNavRow = styled.nav`
+  display: flex;
 `
 
 const StyledAbsoluteLink = styled.a`
-  color: #000000;
-  padding-left: 10px;
-  padding-right: 10px;
+  color: #9797d3;
+  padding: 0 27.5px;
   text-decoration: none;
   &:hover {
-    color: #FFBB00;
+    color: ${({ theme }) => theme.text6};
   }
   &.active {
-    color: #FFBB00;
+    color: ${({ theme }) => theme.text6};
   }
-  @media (max-width: 400px) {
-    padding-left: 10px;
-    padding-right: 10px;
+  @media (max-width: 1800px) {
+    padding: 0 16px;
   }
 `
-
 
 const HeaderFrame = styled.div`
   display: flex;
@@ -78,6 +93,12 @@ const HeaderFrame = styled.div`
 const HeaderElement = styled.div`
   display: flex;
   align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+`
+
+const HeaderLogo = styled(HeaderElement)`
+  justify-content: start;
 `
 
 const HeaderElementWrap = styled.div`
@@ -103,10 +124,9 @@ const AccountElement = styled.div<{ active: boolean }>`
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: ${({ theme, active }) => (!active ? theme.bg1 : theme.bg3)};
+  background-color: ${({ theme, active }) => (!active ? theme.bg1 : theme.bg6)};
   border-radius: 12px;
   white-space: nowrap;
-  width: 100%;
 
   :focus {
     border: 1px solid blue;
@@ -138,8 +158,9 @@ const HeaderControls = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex: 1;
 
-  ${({ theme }) => theme.mediaWidth.upToSmall`
+  ${({ theme }) => theme.mediaWidth.upToMedium`
     flex-direction: column;
     align-items: flex-end;
   `};
@@ -170,14 +191,14 @@ export default function Header() {
   return (
     <HeaderFrame>
       <RowBetween style={{ alignItems: 'flex-start' }} padding="1rem 1rem 0 1rem">
-        <HeaderElement>
+        <HeaderLogo>
           <Title href=".">
             <UniIcon>
-              <img style={{ height: 50 }} src={isDark ? LogoDark : Logo} alt="logo" />
+              <img style={{ height: 50 }} src={Logo} alt="logo" />
             </UniIcon>
           </Title>
-        </HeaderElement>
-        {/* <Nav /> */}
+        </HeaderLogo>
+        <Nav />
         <HeaderControls>
           <HeaderElement>
             <TestnetWrapper>

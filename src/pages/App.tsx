@@ -21,6 +21,7 @@ import RemoveLiquidity from './RemoveLiquidity'
 import { RedirectOldRemoveLiquidityPathStructure } from './RemoveLiquidity/redirects'
 import Swap from './Swap'
 import { RedirectPathToSwapOnly, RedirectToSwap } from './Swap/redirects'
+import bg from '../assets/images/background.png'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -53,6 +54,11 @@ const BodyWrapper = styled.div`
   z-index: 1;
 `
 
+const BackgroundImage = styled.img`
+  width: 100%;
+  position: fixed;
+`
+
 const Marginer = styled.div`
   margin-top: 5rem;
 `
@@ -64,6 +70,7 @@ export default function App() {
         <Route component={GoogleAnalyticsReporter} />
         <Route component={DarkModeQueryParamReader} />
         <AppWrapper>
+          <BackgroundImage src={bg} alt={'background'} />
           <HeaderWrapper>
             <Header />
           </HeaderWrapper>

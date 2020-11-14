@@ -6,7 +6,7 @@ import { Text } from 'rebass'
 import { useTranslation } from 'react-i18next'
 import { ThemeContext } from 'styled-components'
 import AddressInputPanel from '../../components/AddressInputPanel'
-import { ButtonError, ButtonLight, ButtonPrimary } from '../../components/Button'
+import { ButtonPrimary, ButtonGray2, ButtonError2 } from '../../components/Button'
 import Card, { GreyCard } from '../../components/Card'
 import { AutoColumn } from '../../components/Column'
 import ConfirmSwapModal from '../../components/swap/ConfirmSwapModal'
@@ -386,7 +386,7 @@ export default function Swap() {
           </AutoColumn>
           <BottomGrouping>
             {!account ? (
-              <ButtonLight onClick={toggleWalletModal}>{t('connectWallet')}</ButtonLight>
+              <ButtonGray2 onClick={toggleWalletModal}>{t('connectWallet')}</ButtonGray2>
             ) : showWrap ? (
               <ButtonPrimary disabled={Boolean(wrapInputError)} onClick={onWrap}>
                 {wrapInputError ??
@@ -412,7 +412,7 @@ export default function Swap() {
                     'Approve ' + currencies[Field.INPUT]?.symbol
                   )}
                 </ButtonPrimary>
-                <ButtonError
+                <ButtonError2
                   onClick={() => {
                     if (isExpertMode) {
                       handleSwap()
@@ -438,10 +438,10 @@ export default function Swap() {
                       ? `Price Impact High`
                       : `Swap${priceImpactSeverity > 2 ? ' Anyway' : ''}`}
                   </Text>
-                </ButtonError>
+                </ButtonError2>
               </RowBetween>
             ) : (
-              <ButtonError
+              <ButtonError2
                 onClick={() => {
                   if (isExpertMode) {
                     handleSwap()
@@ -466,7 +466,7 @@ export default function Swap() {
                     ? `Price Impact Too High`
                     : `Swap${priceImpactSeverity > 2 ? ' Anyway' : ''}`}
                 </Text>
-              </ButtonError>
+              </ButtonError2>
             )}
             {isExpertMode && swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}
             {betterTradeLinkVersion && <BetterTradeLink version={betterTradeLinkVersion} />}

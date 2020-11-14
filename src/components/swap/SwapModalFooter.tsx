@@ -11,7 +11,7 @@ import {
   formatExecutionPrice,
   warningSeverity
 } from '../../utils/prices'
-import { ButtonError } from '../Button'
+import { ButtonError2 } from '../Button'
 import { AutoColumn } from '../Column'
 import QuestionHelper from '../QuestionHelper'
 import { AutoRow, RowBetween, RowFixed } from '../Row'
@@ -109,7 +109,7 @@ export default function SwapModalFooter({
       </AutoColumn>
 
       <AutoRow>
-        <ButtonError
+        <ButtonError2
           onClick={onConfirm}
           disabled={disabledConfirm}
           error={severity > 2}
@@ -119,7 +119,7 @@ export default function SwapModalFooter({
           <Text fontSize={20} fontWeight={500}>
             {severity > 2 ? 'Swap Anyway' : 'Confirm Swap'}
           </Text>
-        </ButtonError>
+        </ButtonError2>
 
         {swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}
       </AutoRow>

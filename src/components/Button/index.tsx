@@ -108,6 +108,25 @@ export const ButtonGray = styled(Base)`
   }
 `
 
+export const ButtonGray2 = styled(Base)`
+  background-color: ${({ theme }) => theme.bg6};
+  color: ${({ theme }) => theme.text6};
+  font-size: 16px;
+  font-weight: 500;
+  &:hover {
+    background-color: ${({ theme, disabled }) => !disabled && darken(0.05, theme.bg6)};
+  }
+  :disabled {
+    opacity: 0.4;
+    :hover {
+      cursor: auto;
+      box-shadow: none;
+      border: 1px solid transparent;
+      outline: none;
+    }
+  }
+`
+
 export const ButtonSecondary = styled(Base)`
   background-color: ${({ theme }) => theme.primary5};
   color: ${({ theme }) => theme.primaryText1};
@@ -252,6 +271,14 @@ const ButtonErrorStyle = styled(Base)`
     border: 1px solid ${({ theme }) => theme.red1};
   }
 `
+
+export function ButtonError2({ error, ...rest }: { error?: boolean } & ButtonProps) {
+  if (error) {
+    return <ButtonErrorStyle {...rest} />
+  } else {
+    return <ButtonGray2 {...rest} />
+  }
+}
 
 export function ButtonConfirmed({ confirmed, ...rest }: { confirmed?: boolean } & ButtonProps) {
   if (confirmed) {

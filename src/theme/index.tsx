@@ -46,6 +46,8 @@ export function colors(darkMode: boolean): Colors {
     text3: darkMode ? '#6C7284' : '#888D9B',
     text4: darkMode ? '#565A69' : '#C3C5CB',
     text5: darkMode ? '#2C2F36' : '#EDEEF2',
+    text6: darkMode ? '#FFFA6D' : '#FFFA6D',
+    text7: darkMode ? '#9797D3' : '#9797D3',
 
     // backgrounds / greys
     bg1: darkMode ? '#212429' : '#FFFFFF',
@@ -53,6 +55,10 @@ export function colors(darkMode: boolean): Colors {
     bg3: darkMode ? '#40444F' : '#EDEEF2',
     bg4: darkMode ? '#565A69' : '#CED0D9',
     bg5: darkMode ? '#565A69' : '#888D9B',
+    bg6: darkMode ? '#626291' : '#626291',
+    bg7: darkMode ? '#4B4B7D' : '#4B4B7D',
+    bg8: darkMode ? '#201F34' : '#201F34',
+    bg9: darkMode ? '#313154' : '#313154',
 
     //specialty colors
     modalBG: darkMode ? 'rgba(0,0,0,42.5)' : 'rgba(0,0,0,0.3)',
@@ -88,7 +94,7 @@ export function colors(darkMode: boolean): Colors {
 
 export function theme(darkMode: boolean): DefaultTheme {
   return {
-    ...colors(darkMode),
+    ...colors(darkMode || true),
 
     grids: {
       sm: 8,
@@ -213,10 +219,6 @@ body {
   min-height: 100vh;
   background-position: 0 -30vh;
   background-repeat: no-repeat;
-  background-image: ${({ theme }) =>
-    `radial-gradient(50% 50% at 50% 50%, ${transparentize(0.9, theme.primary1)} 0%, ${transparentize(
-      1,
-      theme.bg1
-    )} 100%)`};
+  background-color: #191F35;
 }
 `

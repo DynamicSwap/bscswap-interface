@@ -7,7 +7,7 @@ import ReactGA from 'react-ga'
 import { RouteComponentProps } from 'react-router-dom'
 import { Text } from 'rebass'
 import { ThemeContext } from 'styled-components'
-import { ButtonError, ButtonLight, ButtonPrimary } from '../../components/Button'
+import { ButtonError, ButtonLight, ButtonPrimary, ButtonError2 } from '../../components/Button'
 import { BlueCard, GreyCard, LightCard } from '../../components/Card'
 import { AutoColumn, ColumnCenter } from '../../components/Column'
 import TransactionConfirmationModal, { ConfirmationModalContent } from '../../components/TransactionConfirmationModal'
@@ -427,7 +427,7 @@ export default function AddLiquidity({
                       )}
                     </RowBetween>
                   )}
-                <ButtonError
+                <ButtonError2
                   onClick={() => {
                     expertMode ? onAdd() : setShowConfirm(true)
                   }}
@@ -437,7 +437,7 @@ export default function AddLiquidity({
                   <Text fontSize={20} fontWeight={500}>
                     {error ?? t('supply')}
                   </Text>
-                </ButtonError>
+                </ButtonError2>
               </AutoColumn>
             )}
           </AutoColumn>
